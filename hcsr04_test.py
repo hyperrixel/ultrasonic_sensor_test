@@ -66,7 +66,10 @@ def main():
 
     global ECHO
     global GPIO_STYLE
+    global SENSOR_SCALER
     global TRIG
+    global TRIGGER_CALM_DOWN
+    global TRIGGER_SIGNAL
 
     print ('Initializing GPIO...')
     print('Press control-C to stop calibration.')
@@ -78,9 +81,9 @@ def main():
         stdout.flush()
         while True:
             GPIO.output(TRIG, False)
-            sleep(2)
+            sleep(TRIGGER_CALM_DOWN)
             GPIO.output(TRIG, True)
-            sleep(0.00001)
+            sleep(TRIGGER_SIGNAL)
             GPIO.output(TRIG, False)
             while GPIO.input(ECHO) == 0:
                 pass
@@ -88,7 +91,7 @@ def main():
             while GPIO.input(ECHO) == 1:
                 pass
             pulse_duration = time() - pulse_start
-            distance = pulse_duration * 17150
+            distance = pulse_duration * SENSOR_SCALER
             distance = round(distance, 2)
             if distance > 2 and distance < 400:
                 print ('\rDistance: {} cm(s)       '.format(distance), end='')

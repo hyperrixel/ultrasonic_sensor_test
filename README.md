@@ -12,7 +12,7 @@ The goal of this project is to play with the sensor as simply as possible but yo
 
 2. Get ` python3-rpi.gpio ` if you don't already have it.
 
-3. Wire you ultrasonic sensor according to its documentation. You can ` ECHO ` and ` TRIG ` constants as the pin of **echo** and **trigger** wires (respecitvely) to follow your real-life wiring.
+3. Wire your ultrasonic sensor according to its documentation. You can ` ECHO ` and ` TRIG ` constants as the pin of **echo** and **trigger** wires (respecitvely) to follow your real-life wiring.
 
 ## Usage
 
